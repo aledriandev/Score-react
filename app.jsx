@@ -1,8 +1,7 @@
 const Header = ({players}) => {
   return (
-    <div className='header'>
-
-      <div className='scoreboard'>
+    
+      <div className='header'>
         <table>
           <tbody className='stats'>
             <tr>
@@ -15,7 +14,6 @@ const Header = ({players}) => {
             </tr>
           </tbody>
         </table>
-      </div>
       <div className='stopwatch' >
         <h2>STOPWHATH</h2>
         <h1 className='stopwatch-time'>0</h1>
@@ -23,23 +21,24 @@ const Header = ({players}) => {
         <button>RESET</button>
       </div>
     </div>
+  
   );
 };
 
 const PlayerList = ({players}) => {
   return (
     <div>
-      <ul>{getPlayers(players)}</ul>
+      <div>{getPlayers(players)}</div>
     </div>
   );
 }
 
 const PlayerForm = ({}) => {
   return (
-    <div>
+    <div className='add-player-form'>
       <form>
         <input type="text" placeholder="ENTER A NAME"/>
-        <button>ADD PLAYER</button>
+        <input type='submit' value='ADD PLAYER'/>
       </form>
     </div>
   );
@@ -54,12 +53,18 @@ function sum (players) {
 function getPlayers (players) {
   return players.map((player, index) => {
     return (
-      <li key={index}>
-        <p>{player.name}</p>
-        <button>-</button>
-        <p>{player.score}</p>
-        <button>+</button>
-      </li>
+      <div className='player counter' key={index}>
+        <p className='player-name'>{player.name}</p>
+        <div className='player-score'>
+          <div className='counter-action counter-score'>
+            <div className='counter'>
+                <button className='decrement'>-</button>
+                <p >{player.score}</p>
+                <button className='increment'>+</button>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   });
 }
@@ -84,7 +89,7 @@ let PLAYERS = [
 
 const Application = ({title, players}) => {
   return (
-  <div>
+  <div className='scoreboard'>
     <Header players={players}/>
     <PlayerList players={players}/>
     <PlayerForm/>
