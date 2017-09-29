@@ -1,13 +1,24 @@
 const Header = ({players}) => {
   return (
-    <div>
-      <div>
-        <p>PLAYERS: {players.length}</p>
-        <p>TOTAL POINTS: {sum(players)}</p>
+    <div className='header'>
+
+      <div className='scoreboard'>
+        <table>
+          <tbody className='stats'>
+            <tr>
+              <td>PLAYERS: </td>
+              <td><h1>{players.length}</h1></td>
+            </tr>
+            <tr>
+              <td>TOTAL POINTS: </td>
+              <td><h1>{sum(players)}</h1></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div>
-        <p>STOPWHATH</p>
-        <p>0</p>
+      <div className='stopwatch' >
+        <h2>STOPWHATH</h2>
+        <h1 className='stopwatch-time'>0</h1>
         <button>START</button>
         <button>RESET</button>
       </div>
@@ -22,6 +33,17 @@ const PlayerList = ({players}) => {
     </div>
   );
 }
+
+const PlayerForm = ({}) => {
+  return (
+    <div>
+      <form>
+        <input type="text" placeholder="ENTER A NAME"/>
+        <button>ADD PLAYER</button>
+      </form>
+    </div>
+  );
+};
 
 function sum (players) {
   return players.map(player => { return player.score;}).reduce((playerA,playerB)=>{
@@ -60,16 +82,14 @@ let PLAYERS = [
   },
 ];
 
-
-
 const Application = ({title, players}) => {
   return (
   <div>
     <Header players={players}/>
     <PlayerList players={players}/>
+    <PlayerForm/>
   </div>
   ) ;
 }
-    // <PlayerForm/>
 
 ReactDOM.render(<Application title="Scoreboard" players = {PLAYERS}/>, document.getElementById('container'));
