@@ -56,12 +56,12 @@ function getPlayers (players) {
       <div className='player counter' key={index}>
         <p className='player-name'>{player.name}</p>
         <div className='player-score'>
-          <div className='counter-action counter-score'>
-            <div className='counter'>
-                <button className='decrement'>-</button>
-                <p >{player.score}</p>
-                <button className='increment'>+</button>
-            </div>
+          <div className='counter-score'>
+          <div className='counter'>
+              <button className='decrement'>-</button>
+              <p >{player.score}</p>
+              <button className='increment'>+</button>
+          </div>
           </div>
         </div>
       </div>
