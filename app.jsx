@@ -2,15 +2,15 @@ const Header = ({players}) => {
   return (
     
       <div className='header'>
-        <table>
-          <tbody className='stats'>
+        <table className='stats'>
+          <tbody >
             <tr>
               <td>PLAYERS: </td>
-              <td><h1>{players.length}</h1></td>
+              <td>{players.length}</td>
             </tr>
             <tr>
               <td>TOTAL POINTS: </td>
-              <td><h1>{sum(players)}</h1></td>
+              <td>{sum(players)}</td>
             </tr>
           </tbody>
         </table>
