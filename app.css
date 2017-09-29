@@ -22,6 +22,7 @@ body {
   background-color: #222;
   border-radius: 15px 15px 0 0;
   border-bottom: solid 2px #444;
+  /* Agregue */
   justify-content: space-between;
 }
 
@@ -114,6 +115,8 @@ body {
   .player-name {
     flex-grow: 1;
     padding: 20px 10px 10px 10px;
+    /* Agregue */
+    text-align: center;
   }
 
   .player-score {
