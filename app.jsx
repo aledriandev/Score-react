@@ -53,16 +53,12 @@ function sum (players) {
 function getPlayers (players) {
   return players.map((player, index) => {
     return (
-      <div className='player counter' key={index}>
-        <p className='player-name'>{player.name}</p>
-        <div className='player-score'>
-          <div className='counter-score'>
-          <div className='counter'>
-              <button className='decrement'>-</button>
-              <p >{player.score}</p>
-              <button className='increment'>+</button>
-          </div>
-          </div>
+      <div className='player' key={index}>
+        <div className='player-name'>{player.name}</div>
+        <div className='player-score counter'>
+              <button className='counter-action decrement'>-</button>
+              <div className='counter-score'>{player.score}</div>
+              <button className='counter-action  increment'>+</button>
         </div>
       </div>
     );
